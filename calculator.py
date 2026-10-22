@@ -5,9 +5,13 @@ print("I can help you do calculations.")
 while True:
    try:
        number1 = float(input("Enter your first number: "))
-       operator = input("Enter an operator (+, -, *, /): ").strip()
-       number2 = float(input("Enter your second number: "))
+       operator = input("Enter an operator (+, -, *, /, q): ").strip()
 
+       if operator == "q":
+           print("Thank you for using my CLI Calculator!")
+           break
+
+       number2 = float(input("Enter your second number: "))
 
        if operator == "+":
            result = number1 + number2
@@ -24,18 +28,14 @@ while True:
            print("Error: Invalid operator. Select either +, -, *, /")
            continue
 
-
        print(f"Result: {result:g}")
-
 
    except ValueError:
        print("Error: Please enter valid numbers.")
 
-
    again = input(
-       "Do you want to calculate again? (yes/no): "
+       "Do you want to calculate again? (yes/q): "
    ).strip().lower()
-
 
    if again != "yes":
        print("Thank you for using my CLI Calculator!")
